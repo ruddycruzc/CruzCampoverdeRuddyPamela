@@ -32,6 +32,11 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+main{
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
 img {
     width: 100%;
@@ -89,18 +94,7 @@ ul {
 .nav-item {
   position: relative;
 }
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
 
-  width: 0%;
-  height: 2px;
-  background-color: var(--color-primary);
-
-  transition: width 0.3s;
-}
 .nav-list{
     
     gap:1rem;
@@ -111,12 +105,12 @@ ul {
 }
 .nav-link:hover {
     color: var(--color-primary);
+    background-color: var(--secondary--color);
+    padding: 1rem;
+    border-radius: .5rem;
 }
 
-
-
-
-
+/*==IMAGEN DE LOGIN*/
 .user-actions img {
   width: 35px;
   cursor: pointer;
@@ -124,4 +118,50 @@ ul {
 }
 .user-actions img:hover { /*Pequeña animación*/
   transform: scale(1.1);
+}
+
+/* ===MAIN== */
+.hero {
+  height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+h2{
+font-size: 1.8rem;
+margin-bottom: var(--body-padding);
+position: relative;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin-top: 0.5rem;
+}
+.peliculas {
+  display: flex;
+  flex-direction: column;
+}
+.grid-pelis {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 1.5rem;
 }
