@@ -203,6 +203,17 @@ h2::after {
     margin-top: 0.5rem;
 }
 
+    .series .grid {
+  display: grid;
+  grid-auto-flow: column;          /* 🔥 clave */
+  grid-auto-columns: 250px;        /* ancho de cada card */
+  gap: 1.5rem;
+
+  overflow-x: auto;                /* permite scroll */
+  padding-bottom: 1rem;
+}
+
+
 /* =====/////CARDS/////=====*/
 
 .card {
@@ -323,6 +334,16 @@ h2::after {
     background-color: var(--color-secondary);
 }
 
+.badge {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+ margin-top: 0.6rem;
+}
+.meta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0.3rem;
+}
 
 /* =======
 /////////REGISTRO.HTML /////////////
