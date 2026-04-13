@@ -45,8 +45,8 @@
             <div class="user-actions" aria-label="Acciones de usuario">
 
 
-                <a href="pages/login.html" aria-label="Iniciar sesión">
-                    <img src="src/images/user-regular.svg" alt="Iniciar sesión">
+                  <a href="#" onclick="alert('Simulación sin login real')" aria-label="Iniciar sesión">
+                    <img src="src/images/user-regular.svg" alt="Simular acceso">
                 </a>
 
 
@@ -82,11 +82,11 @@
 
                 <div class="form-group">
                     <label for="contraseña">Contraseña (simulación)</label>
-                    <input type="contraseña" id="contraseña" name="contraseña" required minlength="8">
+                    <input type="text" placeholder="Simulación de contraseña" required minlength="8">
                 </div>
                 <div class="form-group">
                     <label for="confirmar-contraseña">Repetir contraseña</label>
-                    <input type="contraseña" id="confirmar-contraseña" name="confirmar-contraseña" required>
+                    <input type="text" placeholder="Repetir contraseña (simulación)">
                 </div>
 
                 <div class="form-group">
@@ -138,7 +138,9 @@
 
 
                 <div class="form-actions">
-                    <button type="submit">Simular registro</button>
+                    <button type="button" onclick="alert('Simulación completada')" class="btn">
+  Simular registro
+</button>
                     <button type="planes" class="btn-secundario">Ver planes</a>
                 </div>
 
