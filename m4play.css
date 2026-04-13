@@ -46,6 +46,7 @@ main {
 
 img {
     width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -80,44 +81,42 @@ footer {
 /* ===LOGO===*/
 .logo {
     display: flex;
-    overflow: hidden;
     align-items: center;
+    gap: 10px;
+   
 }
 
 .logo img {
-    width: auto;
     height: 50px;
+    width: auto;
+    display: block;
 }
 
 /* ===NAVBAR===*/
 .navbar {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
 
-
-    padding: 1rem 2rem;
-    margin: 0 auto;
 }
 
 .nav-list {
 
     display: none;
     /*Oculto en movil*/
+    flex-direction: column;
     width: 100%;
-    list-style: none;
     flex-basis: 100%;
-    /* Hace que el menú baje a la siguiente línea */
+
+    text-align: center;
 
 }
 
 .nav-list.active {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem 0;
-    text-align: center;
+    gap: 1rem;
+    padding: 1rem 0;
 }
 
 
@@ -126,19 +125,30 @@ footer {
 }
 
 .nav-toggle {
-    display: block;
+    font-size: 2rem;
     background: none;
     border: none;
-    font-size: 2rem;
     cursor: pointer;
 }
 
-
-.nav-link:hover {
-    color: var(--color-primary);
-    background-color: var(--color-secondary);
+.nav-link {
+    display: block;
     padding: 1rem;
-    border-radius: .5rem;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-secondary);
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.nav-link:hover::before {
+    opacity: 1;
 }
 
 
@@ -146,13 +156,17 @@ footer {
 .user-actions {
     display: flex;
     gap: 1rem;
-    margin-left: auto;
+   
+    
+   
 }
 
 .user-actions img {
     width: 35px;
     cursor: pointer;
     transition: 0.3s;
+  
+   
 }
 
 .user-actions img:hover {
@@ -176,7 +190,7 @@ footer {
     background-image: url("src/images/Logo.png");
     background-size: cover;
     background-position: center;
-    
+
 }
 
 .hero::before {
@@ -575,14 +589,18 @@ textarea:focus {
 
 #trailer {
     width: 100%;
-    border-radius: 10px;
-    max-height: 400px;
-    object-fit: cover;
+    max-width: 250px;
+    height: auto;
 }
 
 .detalle {
     margin: 2rem 1rem;
     padding: 1rem;
+
+}
+
+.detalle-img {
+    margin-bottom: 1.5rem;
 }
 
 .detalle-info h1 {
@@ -613,7 +631,7 @@ textarea:focus {
 
 .info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.5rem 1.5rem;
 
     font-size: 0.9rem;
@@ -628,7 +646,7 @@ textarea:focus {
     margin-top: 1rem;
     padding: 0.7rem 1.5rem;
 
-    background-color: var(--form-shadow);
+    background-color: var(--color-primary);
     color: var(--form-bg);
 
     border-radius: 5px;
@@ -649,32 +667,22 @@ textarea:focus {
 @media (min-width: 768px) {
 
     /* NAV */
-    .nav-toggle {
-        display: none;
-    }
 
-    .navbar {
-        flex-wrap: nowrap;
+    .nav-toggle {
+        display: block;
     }
 
 
     .nav-list {
-        display: flex;
-        flex-direction: row;
+          display: none;
+       
 
-        background-color: var(--red);
-        width: auto;
-        gap: 2rem;
-        margin-left: 2rem;
     }
 
     .nav-list.active {
         display: flex;
     }
 
-    .user-actions a[href="#usuario"] {
-        display: inline-flex;
-    }
 
 
     /* GRID */
@@ -689,6 +697,8 @@ textarea:focus {
     .detalle {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
     }
 
     /* FORM */
@@ -700,17 +710,29 @@ textarea:focus {
 
 
 @media (min-width: 1024px) {
-    .header {
-        flex-wrap: nowrap;
+  
+
+   .nav-toggle {
+        display: none; /* ❌ desaparece hamburguesa */
     }
 
     .nav-list {
         display: flex;
+        flex-direction: row;
         justify-content: space-evenly;
-
         gap: 2rem;
-
+        width: auto;
+        background: none;
     }
+
+    .navbar {
+        flex-wrap: nowrap;
+    }
+
+    .user-actions {
+        margin-left: auto;
+    }
+
 
     .grid {
         grid-template-columns: repeat(4, 1fr);
@@ -722,5 +744,10 @@ textarea:focus {
 
     .hero h1 {
         font-size: 2.5rem;
+    }
+
+    #trailer {
+        max-width: 600px;
+
     }
 }
